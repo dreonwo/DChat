@@ -1,0 +1,73 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src = "/account.js"></script>
+    <script src = "firebase.mjs" type = "module"></script>
+    <title>DChat</title>
+</head>
+<body>
+
+    <div id="main" class = "center">
+
+        <h1 id = "logo">DChat</h1>
+        <div id="accountDiv" class="center">
+            <div id="loginDiv" class="center" style = "display:none;">
+
+                <h2>Please Login Here</h2>
+
+             <!-- <p class = "loginP">Email:</p>  -->
+                <input type="text" id="loginEmail" placeholder="Email">
+
+                <br> <br>
+
+            <!-- <p class = "loginP">Password:</p>  -->
+                <input type="password" id="loginPassword" placeholder="Password">
+
+                <br>
+
+                <button id = "btnLogin">Login</button>
+
+                <p>Haven't signed up? <a>Click here!</a></p>
+            </div>
+
+            <div id="signupDiv" class ="center" style = "display:none;">
+
+                <h2>Please Signup Here</h2>
+
+                <input type="text" id="signupEmail" placeholder="Email">
+
+                <br> <br>
+
+                <input type="text" id="signupUsername" placeholder="Username">
+
+                <br> <br>
+
+                <input type="password" id="signupPassword" placeholder="Password">
+
+                <br>
+
+                <button id = "btnSignup">Sign up</button>
+                
+                <p>Already have an account? <a>Click here!</a></p>
+            </div>
+
+            <div id="usernameDiv" style = "display: none;">
+                <h2>Please input username here</h2>
+                <form action="">
+                    <input type="text" id = "username">
+                </form>
+                
+            </div>
+        </div>
+    </div>
+
+        <div id="scrollPage" style = "display: none">
+            <h2> Test </h2>
+            <!-- Create Logout Button and Func -->
+            <button id = "btnLogout">Logout</button>
+        </div>
+</body>
+</html>
