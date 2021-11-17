@@ -21,13 +21,20 @@ window.onload = ()=>{
 
     $('#btnLogin').addEventListener('click', () =>{
         login($('#loginEmail').value, $('#loginPassword').value);
+        $('#loginEmail').value='';
+        $('#loginPassword').value='';
     });
     
     $('#btnSignup').addEventListener('click', () =>{
         signup($('#signupEmail').value,$('#signupPassword').value);
+        $('#signupEmail').value='';
+        $('#signupPassword').value='';
     });
 
     $('#btnLogout').addEventListener('click', () =>{
+        $('#scrollPage').style.display = 'none';
+        $('#signupDiv').style.display = 'none';
+        $('#main').style.display = 'block';
         logout();
     });
 
@@ -38,7 +45,8 @@ window.onload = ()=>{
                 if($('#signupUsername').value){
                     addUsername(user.uid, $('#signupUsername').value);
                     $('#scrollPage').style.display = 'block';
-                    $('#accountDiv').style.display = 'none';
+                    $('#main').style.display = 'none';
+                    $('#signupUsername').value='';
                 }
                 else{
                     //Todo: Add form to add username
@@ -57,6 +65,7 @@ window.onload = ()=>{
             else{
                 console.log(username)
                 $('#scrollPage').style.display = 'block';
+                $('#main').style.display = 'none';
             }
 
         }else{
