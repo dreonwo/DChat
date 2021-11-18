@@ -32,7 +32,7 @@ window.onload = ()=>{
     });
 
     $('#btnLogout').addEventListener('click', () =>{
-        $('#scrollPage').style.display = 'none';
+        $('#homePage').style.display = 'none';
         $('#signupDiv').style.display = 'none';
         $('#main').style.display = 'block';
         logout();
@@ -44,7 +44,7 @@ window.onload = ()=>{
             if(!username){
                 if($('#signupUsername').value){
                     addUsername(user.uid, $('#signupUsername').value);
-                    $('#scrollPage').style.display = 'block';
+                    $('#homePage').style.display = 'block';
                     $('#main').style.display = 'none';
                     $('#signupUsername').value='';
                 }
@@ -55,7 +55,7 @@ window.onload = ()=>{
                         e.preventDefault();
                         addUsername(user.uid, $('#username').value);
                         $('#username').value = '';
-                        $('#scrollPage').style.display = 'block';
+                        $('#homePage').style.display = 'block';
                         $('#accountDiv').style.display = 'none';
                         $('#usernameDiv').style.display = 'none';
                     });
@@ -64,7 +64,7 @@ window.onload = ()=>{
             }
             else{
                 console.log(username)
-                $('#scrollPage').style.display = 'block';
+                $('#homePage').style.display = 'block';
                 $('#main').style.display = 'none';
             }
 
