@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles.css">
     <script src = "main.js"></script>
     <script src = "firebase.mjs" type = "module"></script>
+    <script src="https://kit.fontawesome.com/699106d578.js" crossorigin="anonymous"></script>
     <title>DChat</title>
 </head>
 <body>
@@ -66,10 +67,18 @@
         </div>
     </div>
 
-        <div id="homePage" style = "display: none">
-            <h2> Test </h2>
-            <!-- Create Logout Button and Func -->
-            <button id = "btnLogout">Logout</button>
+    <div id="homePage" style = "display: none;">
+        <h2> Test </h2>
+        <button id = "btnLogout">Logout</button>
+        <div id = "scroll" class = "center b">
+            <div id="search">
+                <i class="fas fa-search"></i>
+                <input id = "searchbox" type="text" placeholder="Search">
+                <!-- <button id = "searchBtn">?</button> -->
+            </div>
+
+
         </div>
+    </div>
 </body>
 </html>

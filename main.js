@@ -2,7 +2,7 @@
 window.onload = ()=>{
 
     const $ = document.querySelector.bind(document);
-
+    
     const loginDiv = $('#loginDiv');
     const signupDiv = $('#signupDiv');
 
@@ -40,7 +40,8 @@ window.onload = ()=>{
 
     onLogin(async user =>{
         if(user){
-            let username = await getUsername(user.uid);
+            window.user = await getUser(user.uid);
+            let username = window.user.username;
             if(!username){
                 if($('#signupUsername').value){
                     addUsername(user.uid, $('#signupUsername').value);
@@ -63,7 +64,7 @@ window.onload = ()=>{
                 
             }
             else{
-                console.log(username)
+                console.log(window.user)
                 $('#homePage').style.display = 'block';
                 $('#main').style.display = 'none';
             }

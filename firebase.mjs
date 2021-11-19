@@ -38,9 +38,9 @@ window.logout = () =>{
     auth.signOut();
 }
 
-window.getUsername = async (userId)=>{
+window.getUser = async (userId)=>{
     const docSnap = await getDoc(doc(db,'Users', userId));
-    if(docSnap.exists()) return docSnap.data().username;
+    if(docSnap.exists()) return docSnap.data();
 }
 
 window.addUsername = (userId, username)=>{
