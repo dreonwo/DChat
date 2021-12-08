@@ -4,7 +4,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.1/firebase
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } 
 from  "https://www.gstatic.com/firebasejs/9.4.1/firebase-auth.js";
 
-import { getFirestore, collection, addDoc, getDoc, getDocs, serverTimestamp, setDoc, doc} 
+import { getFirestore, collection, addDoc, getDoc, getDocs, updateDoc, deleteDoc, deleteField, serverTimestamp, setDoc, doc, query, where, arrayUnion} 
 from "https://www.gstatic.com/firebasejs/9.4.1/firebase-firestore.js";
 
 // Your web app's Firebase configuration
@@ -43,8 +43,97 @@ window.getUser = async (userId)=>{
     if(docSnap.exists()) return docSnap.data();
 }
 
+window.getUserDoc = async (username)=>{
+
+    const q = query(collection(db, "Users"), where("username", "==", username));
+    const docSnap = await getDocs(q);
+    var docRef;
+
+    docSnap.forEach((doc) => {
+        docRef = doc;
+        
+      });
+    return docRef.data();
+}
+
+window.getUserRef = async (username)=>{
+
+    const q = query(collection(db, "Users"), where("username", "==", username));
+    const docSnap = await getDocs(q);
+    var docRef;
+
+    docSnap.forEach((doc) => {
+        docRef = doc.ref;
+      });
+    return docRef;
+}
+
+window.getOwnDoc = async()=>{
+    var ref = await doc(db,'Users', auth.currentUser.uid);
+    var docu = await getDoc(ref);
+    return docu.data();
+}
+
+window.getOwnRef = async()=>{
+    return doc(db,'Users', auth.currentUser.uid);
+}
+
 window.addUsername = (userId, username)=>{
-    setDoc(doc(db,'Users',userId),{username});
+    setDoc(doc(db,'Users',userId),{username, chats:{} });
+}
+
+window.createChatRoom = async (user1Prom,user2Prom)=>{
+    var user1 = await user1Prom;
+    var user2 = await user2Prom;
+    var user1Ref = await getOwnRef();
+    var user2Ref = await getUserRef(user2.username);
+    var chatId
+
+    if(!Object.values(user1.chats).includes(user2.username) && !Object.values(user2.chats).includes(user1.username)){
+
+        chatId = (await addDoc( collection(db, 'Chats'), {messages: [] })).id;
+
+        updateDoc(user1Ref,{[`chats.${chatId}`]: user2.username});
+        updateDoc(user2Ref,{[`chats.${chatId}`]: user1.username});
+    }
+    else if(Object.values(user1.chats).includes(user2.username) && !Object.values(user2.chats).includes(user1.username)){
+        let id = Object.keys(user1.chats).find(key => user1.chats[key] === user2.username);
+        updateDoc(user2Ref,{[`chats.${id}`]: user1.username});
+    }
+    else{
+        let id = Object.keys(user2.chats).find(key => user2.chats[key] === user1.username);
+        updateDoc(user1Ref,{[`chats.${id}`]: user2.username});
+    }
+}
+
+window.deleteChat = async (username)=>{
+    var myRef = await getOwnRef();
+    var my = await getOwnDoc();
+
+    console.log("Chat: ",my.chats)
+
+    var chatId = await getChatId(username);
+    console.log('chatId: '+chatId)
+    await updateDoc(myRef, {
+        [`chats.${chatId}`]: deleteField()
+    });
+}
+
+window.getChatId = async(username)=>{
+    var my = await getOwnDoc();
+    return Object.keys(my.chats).find(key => my.chats[key] === username);
+}
+
+window.createMessage = async (username, message)=>{
+    var id = await getChatId(username);
+    var my = await getOwnDoc();
+
+    //currently only changes one message object instead of adding a new one
+    updateDoc(doc(db,'Chats',id),{messages: {
+        message,
+        timestamp:serverTimestamp(),
+        sender:my.username
+    }});
 }
 
 window.onLogin = (f) =>{
