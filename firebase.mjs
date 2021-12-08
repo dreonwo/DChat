@@ -4,7 +4,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.1/firebase
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } 
 from  "https://www.gstatic.com/firebasejs/9.4.1/firebase-auth.js";
 
-import { getFirestore, collection, addDoc, getDoc, getDocs, updateDoc, deleteDoc, deleteField, serverTimestamp, setDoc, doc, query, where, arrayUnion} 
+import { getFirestore, collection, addDoc, getDoc, getDocs, updateDoc, deleteField, serverTimestamp, setDoc, doc, query, where, orderBy, onSnapshot, limit} 
 from "https://www.gstatic.com/firebasejs/9.4.1/firebase-firestore.js";
 
 // Your web app's Firebase configuration
@@ -127,13 +127,30 @@ window.getChatId = async(username)=>{
 window.createMessage = async (username, message)=>{
     var id = await getChatId(username);
     var my = await getOwnDoc();
-
-    //currently only changes one message object instead of adding a new one
-    updateDoc(doc(db,'Chats',id),{messages: {
+    var server = serverTimestamp();
+    addDoc(collection(db,'Chats',id, 'messages'),{
+        timestamp:server,
         message,
-        timestamp:serverTimestamp(),
         sender:my.username
-    }});
+    });
+}
+
+window.getAllMessages = async (chatId,func)=>{
+
+    const q = query(collection(db,"Chats",chatId,"messages"), orderBy("timestamp"));
+    const docSnap = await getDocs(q);
+
+    docSnap.forEach((doc)=>{
+        window.latestTimestamp = doc.data().timestamp;
+        func(doc);
+    });
+}
+
+window.startListeningForLatestMessage = function(chatId, f){
+    window.stopListeningForLatestMessage = onSnapshot(
+        query(collection(db,"Chats",chatId,"messages"), where("timestamp", ">", window.latestTimestamp), orderBy("timestamp","desc"), limit(1)),
+        docs => {console.log(docs); docs.forEach(f)}
+    );
 }
 
 window.onLogin = (f) =>{

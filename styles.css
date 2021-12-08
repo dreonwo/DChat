@@ -122,6 +122,24 @@ p a:hover{
     border: 2px solid;
 }
 
+.sender::after{
+    content: ": ";
+}
+
+.myMsg{
+    color: blue;
+}
+
+.theirMsg{
+    color: red;
+}
+
+.time{
+    font-size: 50%;
+    display: block;
+    text-align: right;
+}
+
 #search{
     /* float: right; */
     text-align: center;

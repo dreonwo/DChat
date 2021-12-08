@@ -1,4 +1,4 @@
-
+'use strict'
 window.onload = ()=>{
 
     const $ = document.querySelector.bind(document);
@@ -41,14 +41,18 @@ window.onload = ()=>{
     $('#backbtn').addEventListener('click', () =>{
         $('#chatroom').style.display = 'none';
         $('#scroll').style.display = 'block';
+        $('#messages').innerHTML = '';
+        stopListeningForLatestMessage();
     });
 
 
     $('#searchbox').addEventListener('keyup', (e)=>{
         
         if (e.key === 'Enter' || e.keyCode === 13) {
-            createChatRoom(getOwnDoc(),getUserDoc(e.target.value));
-            e.target.value = '';
+            createChatRoom(user,getUserDoc(e.target.value)).then(()=>{
+                createChatterDiv(e.target.value);
+                e.target.value = '';
+            });
         }
     });
 
@@ -61,9 +65,10 @@ window.onload = ()=>{
         }
     });
 
-    var createChatterDiv = (chatter)=>{
-        var chatId;
-        chatterDiv = document.createElement('div');
+    var createChatterDiv = async (chatter)=>{
+        var chatId = await getChatId(chatter);
+        console.log(chatId)
+        var chatterDiv = document.createElement('div');
         chatterDiv.classList.add('chatDiv');
         chatterDiv.textContent = chatter;
         var parser = new DOMParser();
@@ -76,7 +81,9 @@ window.onload = ()=>{
         trash.style.left = '43%';
 
         trash.addEventListener('click', (e)=>{
-            deleteChat(e.currentTarget.parentNode.textContent);
+            deleteChat(e.currentTarget.parentNode.textContent).then(()=>{
+                chatterDiv.remove();
+            });
             e.stopPropagation();
         });
 
@@ -85,8 +92,41 @@ window.onload = ()=>{
             $('#scroll').style.display = 'none';
             $('#chatroom').style.display = 'block';
             $('h2#name').textContent = e.target.textContent;
+
+            getAllMessages(chatId, addMsgDiv).then(()=>{
+                startListeningForLatestMessage(chatId,addMsgDiv);
+            });
+ 
         });
         $('#chats').appendChild(chatterDiv);
+    }
+
+    const addMsgDiv = (doc)=>{
+
+        let data = doc.data();
+
+        if(data.timestamp){
+            let msgDiv = $('#messages').appendChild(document.createElement('div'));
+            let senderSpan = msgDiv.appendChild(document.createElement('span'));
+            let msgSpan = msgDiv.appendChild(document.createElement('span'));
+            let timeSpan = msgDiv.appendChild(document.createElement('span'));
+
+            msgSpan.textContent = data.message;
+    
+            if(data.sender == user.username)
+                senderSpan.classList.add('myMsg');
+            else
+                senderSpan.classList.add('theirMsg');
+    
+            senderSpan.textContent = data.sender;
+            senderSpan.classList.add('sender');
+    
+            timeSpan.classList.add('time');
+            timeSpan.textContent = data.timestamp.toDate().toISOString();
+        }
+        
+        
+
     }
 
     onLogin(async auth =>{
