@@ -1,5 +1,4 @@
 # DChat
 
 You can find the website here:
-
-https://dreonwo.github.io/DChat/
+<a href = "https://dreonwo.github.io/DChat/" target = "_blank">DChat</a>
