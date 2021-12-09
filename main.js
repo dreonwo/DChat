@@ -123,7 +123,8 @@ window.onload = ()=>{
             senderSpan.classList.add('sender');
     
             timeSpan.classList.add('time');
-            timeSpan.textContent = data.timestamp.toDate().toISOString();
+            //let timeSince = (Date.now() - data.timestamp.toDate())/1000;
+            timeSpan.textContent = ` ${new Date(data.timestamp.toDate()).toLocaleTimeString()}`;
         }     
 
     }
