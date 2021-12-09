@@ -35,6 +35,7 @@ window.onload = ()=>{
         $('#homePage').style.display = 'none';
         $('#signupDiv').style.display = 'none';
         $('#main').style.display = 'block';
+        window.user = undefined;
         logout();
     });
 
@@ -129,56 +130,55 @@ window.onload = ()=>{
 
     }
 
-    onLogin(async auth =>{
+    async function statusChange(auth){
         if(auth){
             try{
                 window.user = await getUser(auth.uid);
             }
-            catch{
-                logout();
+            catch(err){
+                console.log(err)
             }
 
-            if(user){
-                let username = window.user.username;
-                if(!username){
-                    if($('#signupUsername').value){
-                        addUsername(auth.uid, $('#signupUsername').value);
-                        $('#homePage').style.display = 'block';
-                        $('#main').style.display = 'none';
-                        $('#signupUsername').value='';
-                    }
-                    else{
-                        //Todo: Add form to add username
-                        $('#usernameDiv').style.display = 'block';
-                        $('#username').addEventListener('submit', (e) =>{
-                            e.preventDefault();
-                            addUsername(auth.uid, $('#username').value);
-                            $('#username').value = '';
-                            $('#homePage').style.display = 'block';
-                            $('#accountDiv').style.display = 'none';
-                            $('#usernameDiv').style.display = 'none';
-                        });
-                    }
-                    
-                }
-                else{
-                    //console.log(window.user)
-                    $('#chats').innerHTML = '';
-    
-                    $('#homepage h2').textContent = window.user.username;
-    
-                    for(var chatter in user.chats){
-                        createChatterDiv(user.chats[chatter]);
-                    }
-
+            if(!window.user){
+                if($('#signupUsername').value){
+                    await addUsername(auth.uid, $('#signupUsername').value);
                     $('#homePage').style.display = 'block';
                     $('#main').style.display = 'none';
+                    $('#signupUsername').value='';
+                    statusChange(auth);
                 }
-    
+                else{
+                    $('#loginDiv').style.display = 'none';
+                    $('#signupDiv').style.display = 'none';
+                    $('#usernameDiv').style.display = 'block';
+
+                    $('#usernameForm').addEventListener('submit', async (e) =>{
+                        e.preventDefault();
+                        await addUsername(auth.uid, $('#username').value);
+                        $('#username').value = '';
+                        $('#homePage').style.display = 'block';
+                        $('#accountDiv').style.display = 'none';
+                        $('#usernameDiv').style.display = 'none';
+                        statusChange(auth);
+                    });
+                } 
+            }
+            else{
+                $('#chats').innerHTML = '';
+
+                $('#homepage h2').textContent = window.user.username;
+
+                for(var chatter in user.chats){
+                    createChatterDiv(user.chats[chatter]);
+                }
+
+                $('#homePage').style.display = 'block';
+                $('#main').style.display = 'none';    
             }
         }
         else{
             loginDiv.style.display = 'block';
         }               
-    });
+    };
+    onLogin(statusChange);
 };

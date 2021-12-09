@@ -1,3 +1,4 @@
+'use strict'
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-app.js";
 
@@ -39,7 +40,9 @@ window.logout = () =>{
 }
 
 window.getUser = async (userId)=>{
+    console.log("UserId: ",userId)
     const docSnap = await getDoc(doc(db,'Users', userId));
+    console.log("UserData: ",docSnap.data())
     if(docSnap.exists()) return docSnap.data();
 }
 
@@ -79,6 +82,7 @@ window.getOwnRef = async()=>{
 }
 
 window.addUsername = (userId, username)=>{
+    console.log("Username in addUsername: ",username,userId)
     setDoc(doc(db,'Users',userId),{username, chats:{} });
 }
 
@@ -109,9 +113,6 @@ window.createChatRoom = async (user1Prom,user2Prom)=>{
 window.deleteChat = async (username)=>{
     var myRef = await getOwnRef();
     var my = await getOwnDoc();
-
-    console.log("Chat: ",my.chats)
-
     var chatId = await getChatId(username);
     console.log('chatId: '+chatId)
     await updateDoc(myRef, {
