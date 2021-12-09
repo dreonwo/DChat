@@ -150,7 +150,7 @@ window.getAllMessages = async (chatId,func)=>{
 window.startListeningForLatestMessage = function(chatId, f){
     window.stopListeningForLatestMessage = onSnapshot(
         query(collection(db,"Chats",chatId,"messages"), where("timestamp", ">", window.latestTimestamp), orderBy("timestamp","desc"), limit(1)),
-        docs => {console.log(docs); docs.forEach(f)}
+        docs => {docs.forEach(f)}
     );
 }
 
