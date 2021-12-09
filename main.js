@@ -124,9 +124,7 @@ window.onload = ()=>{
     
             timeSpan.classList.add('time');
             timeSpan.textContent = data.timestamp.toDate().toISOString();
-        }
-        
-        
+        }     
 
     }
 
