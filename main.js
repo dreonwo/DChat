@@ -76,10 +76,8 @@ window.onload = ()=>{
         var doc = parser.parseFromString(`<i class="fas fa-trash"></i>`, 'text/html');
         var trash = doc.body;
 
-        trash.style.display = 'inline-block';
-        trash.style.position = 'relative';
-        trash.style.background = 'none';
-        trash.style.left = '43%';
+        trash.classList.add('trash');
+        trash.classList.add('trashMobile');
 
         trash.addEventListener('click', (e)=>{
             deleteChat(e.currentTarget.parentNode.textContent).then(()=>{

@@ -14,7 +14,6 @@ body{
 
 h2{
     color: #720E07;
-
 }
 
 p{
@@ -42,14 +41,14 @@ p{
     display: inline-block;
     text-align: center;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 1.6em;
 }
 
 #loginEmail,#loginPassword,#signupEmail,#signupPassword,#signupUsername{
     background-color:white;
     border: black 1px;
-    height: 25px;
-    font-size: 15px;
+    height: 1.5em;
+    font-size: .7em;
 }
 
 ::placeholder{
@@ -141,7 +140,6 @@ p a:hover{
 }
 
 #search{
-    /* float: right; */
     text-align: center;
 }
 
@@ -164,6 +162,13 @@ p a:hover{
     top: 7px;
 }
 
+.trash{
+    display:inline-block;
+    position: relative;
+    background: none;
+    left: 43%;
+}
+
 .b{
     border: black solid;
 }
@@ -177,4 +182,53 @@ p a:hover{
 
 .chatDiv:hover{
     cursor: pointer;
+}
+
+@media  (max-width: 500px) {
+
+    #accountDiv{
+        width: 80%;
+    }
+
+    #logo{
+        margin: 20px 15%;
+    }
+
+    #scroll,#chatroom{
+        width:90%;
+        height: 80%;
+        top: 55%;
+    }
+
+    #search i{
+        left:4%;
+    }
+
+   .trashMobile{
+        left: 38%;
+    }
+
+    #btnLogout{
+        margin-top: 0;
+        margin-left: 70%;
+    }
+
+    h2{
+        margin-bottom: 5px;
+    }
+
+    #name{
+        margin: 5% 25% 5%;
+    }
+
+    #messages{
+        border-top: 1px solid black;
+        padding: 3% 3%;
+        height: 81%;
+        overflow: scroll;
+    }
+
+    #messageBox{
+        top: 96%;
+    }
 }
