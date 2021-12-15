@@ -210,7 +210,7 @@ p a:hover{
 
     #btnLogout{
         margin-top: 0;
-        margin-left: 70%;
+        margin-left: 69%;
     }
 
     h2{
@@ -224,11 +224,11 @@ p a:hover{
     #messages{
         border-top: 1px solid black;
         padding: 3% 3%;
-        height: 81%;
+        height: 80%;
         overflow: scroll;
     }
 
     #messageBox{
-        top: 96%;
+        top: 95%;
     }
 }
