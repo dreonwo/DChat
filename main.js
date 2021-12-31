@@ -68,7 +68,6 @@ window.onload = ()=>{
 
     var createChatterDiv = async (chatter)=>{
         var chatId = await getChatId(chatter);
-        console.log(chatId)
         var chatterDiv = document.createElement('div');
         chatterDiv.classList.add('chatDiv');
         chatterDiv.textContent = chatter;
@@ -93,10 +92,15 @@ window.onload = ()=>{
             $('h2#name').textContent = e.target.textContent;
 
             getAllMessages(chatId, addMsgDiv).then(()=>{
+
+                $('#messages').scrollTop = $('#messages').scrollHeight;
+
                 startListeningForLatestMessage(chatId,addMsgDiv);
+                
             });
  
         });
+
         $('#chats').appendChild(chatterDiv);
     }
 
@@ -123,6 +127,8 @@ window.onload = ()=>{
             timeSpan.classList.add('time');
             //let timeSince = (Date.now() - data.timestamp.toDate())/1000;
             timeSpan.textContent = ` ${new Date(data.timestamp.toDate()).toLocaleTimeString()}`;
+
+            $('#messages').scrollTop = $('#messages').scrollHeight;
         }     
 
     }

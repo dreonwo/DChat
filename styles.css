@@ -209,8 +209,7 @@ p a:hover{
     }
 
     #btnLogout{
-        margin-top: 0;
-        margin-left: 69%;
+        margin: 0 0 0 69%;
     }
 
     h2{

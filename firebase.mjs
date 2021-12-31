@@ -40,9 +40,7 @@ window.logout = () =>{
 }
 
 window.getUser = async (userId)=>{
-    console.log("UserId: ",userId)
     const docSnap = await getDoc(doc(db,'Users', userId));
-    console.log("UserData: ",docSnap.data())
     if(docSnap.exists()) return docSnap.data();
 }
 
@@ -82,7 +80,6 @@ window.getOwnRef = async()=>{
 }
 
 window.addUsername = (userId, username)=>{
-    console.log("Username in addUsername: ",username,userId)
     setDoc(doc(db,'Users',userId),{username, chats:{} });
 }
 
@@ -112,9 +109,7 @@ window.createChatRoom = async (user1Prom,user2Prom)=>{
 
 window.deleteChat = async (username)=>{
     var myRef = await getOwnRef();
-    var my = await getOwnDoc();
     var chatId = await getChatId(username);
-    console.log('chatId: '+chatId)
     await updateDoc(myRef, {
         [`chats.${chatId}`]: deleteField()
     });
@@ -148,6 +143,7 @@ window.getAllMessages = async (chatId,func)=>{
 }
 
 window.startListeningForLatestMessage = function(chatId, f){
+
     window.stopListeningForLatestMessage = onSnapshot(
         query(collection(db,"Chats",chatId,"messages"), where("timestamp", ">", window.latestTimestamp), orderBy("timestamp","desc"), limit(1)),
         docs => {docs.forEach(f)}
