@@ -113,11 +113,18 @@ p a:hover{
     opacity: .7;
 }
 
+#messages{
+    max-height: 90%;
+    overflow: scroll;
+}
+
 #messagebox{
     position: absolute;
-    width: 96%;
-    top: 94%;
-    left: 2.1%;
+    width: 99%;
+    top: 96%;
+    left: .5%;
+    background-color: lightgrey;
+    opacity: 1;
     border: 2px solid;
 }
 
