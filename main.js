@@ -72,11 +72,8 @@ window.onload = ()=>{
         chatterDiv.classList.add('chatDiv');
         chatterDiv.textContent = chatter;
         var parser = new DOMParser();
-        var doc = parser.parseFromString(`<i class="fas fa-trash"></i>`, 'text/html');
-        var trash = doc.body;
-
-        trash.classList.add('trash');
-        trash.classList.add('trashMobile');
+        var doc = parser.parseFromString(`<i class="fas fa-trash trash trashMobile"></i>`, 'text/html');
+        var trash = doc.querySelector('i');
 
         trash.addEventListener('click', (e)=>{
             deleteChat(e.currentTarget.parentNode.textContent).then(()=>{
