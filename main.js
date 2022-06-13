@@ -3,11 +3,18 @@ window.onload = ()=>{
 
     const $ = document.querySelector.bind(document);
     
+    const landingPage = $('#landingPage');
     const loginDiv = $('#loginDiv');
     const signupDiv = $('#signupDiv');
 
     const signupA = $('#loginDiv p a');
     const loginA = $('#signupDiv p a');
+    const landingBtn = $('#landingBtn');
+    
+    landingBtn.addEventListener('click', () =>{
+        landingPage.style.display = 'none';
+        $('#main').style.display = 'block';
+    });
 
     signupA.addEventListener('click', ()=>{
         signupDiv.style.display = 'block';

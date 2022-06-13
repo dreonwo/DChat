@@ -7,7 +7,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#7cd97c">
 
-    <!-- <link rel="manifest" href="manifest.json"> -->
+    <link rel="manifest" href="manifest.webmanifest">
     <link rel="stylesheet" href="styles.css">
     <script src = "main.js"></script>
     <script src = "firebase.mjs" type = "module"></script>
@@ -16,9 +16,15 @@
 </head>
 <body>
 
-    <div id="main" class = "center">
+    <div id="landingPage">
+        <img src = "/images/DChatLogo.jpg" id="logo">
+        <h1 class = "center">Welcome to DChat!</h1>
+        <button id = "landingBtn" class = "center">Login Here</button>
+    </div>
+    
+    <div id="main" class = "center" style = "display:none">
 
-        <h1 id = "logo">DChat</h1>
+        <!-- <h1 id = "logo">DChat</h1> -->
         <div id="accountDiv" class="center">
             <div id="loginDiv" class="center" style = "display:none;">
 

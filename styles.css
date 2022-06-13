@@ -35,6 +35,10 @@ p{
     transform: translate(-50%,-50%);
 }
 
+#landingBtn{
+    top: 57%;
+}
+
 #loginDiv,#signupDiv{
     min-width: 80%;
     min-height: 80%;
@@ -57,7 +61,7 @@ p{
     margin-bottom: 10px;
 }
 
-#btnLogin, #btnSignup, #btnLogout{
+#btnLogin, #btnSignup, #btnLogout, #landingBtn{
     font-family: sans-serif;
     font-weight: bold;
     display: inline-block;
@@ -70,10 +74,12 @@ p{
 }
 
 #logo{
-    
     color: #720E07;
     margin: 20px 40%;
     font-size: 5em;
+    max-width: 20%;
+    max-height: 20%;
+    border-radius: 25%;
 }
 
 p a:hover{
