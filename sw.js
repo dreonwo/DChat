@@ -1,5 +1,5 @@
 const CACHE_NAME = "v1.8";
-const OFFLINE_URL = "offline.html";
+const OFFLINE_URL = "/offline.html";
 
 
 async function cacheOffline(){
