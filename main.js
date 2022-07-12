@@ -10,9 +10,16 @@ window.onload = ()=>{
     const signupA = $('#loginDiv p a');
     const loginA = $('#signupDiv p a');
     const landingBtn = $('#landingBtn');
+    const goHome = $('.goHome');
+
     
     landingPage.style.display = "block";
 
+    goHome.addEventListener('click', ()=>{
+        landingPage.style.display = 'block';
+        $('#main').style.display = 'none';
+    });
+    
     landingBtn.addEventListener('click', () =>{
         landingPage.style.display = 'none';
         $('#main').style.display = 'block';
