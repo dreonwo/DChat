@@ -1,5 +1,5 @@
 const CACHE_NAME = "v1.8";
-const OFFLINE_URL = "/offline.html";
+const OFFLINE_URL = "offline.html";
 
 
 async function cacheOffline(){
@@ -41,6 +41,6 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("fetch", (event) => {
     if (event.request.mode === "navigate") {
-        event.respondWith( onlineOrOffline(event.request) );
+        //event.respondWith( onlineOrOffline(event.request) );
     }
 });

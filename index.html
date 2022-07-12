@@ -7,23 +7,22 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#7cd97c">
 
-    <link rel="apple-touch-icon" href="/images/dchatlogo80x80.png">
-    <link rel="apple-touch-icon" href="/images/dchatlogo96x96.png">
+    <link rel="apple-touch-icon" href="images/dchatlogo80x80.png">
+    <link rel="apple-touch-icon" href="images/dchatlogo96x96.png">
     <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" href="images/dchatlogo80x80.png">
     <link rel="stylesheet" href="styles.css">
 
     <script>
         window.addEventListener('load', () =>{
             if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register('/sw.js').then(function(registration) {
+                navigator.serviceWorker.register('sw.js').then(function(registration) {
                     console.log('ServiceWorker registration successful!');
                 }).catch(function(err) {
                     console.log('ServiceWorker registration failed: ', err);
                 });
             }
         });
-
-        
     </script>
     <script src = "main.js"></script>
     <script src = "firebase.mjs" type = "module"></script>
@@ -32,16 +31,19 @@
 </head>
 <body>
 
-    <div id="landingPage">
-        <img src = "/images/DChatLogo.jpg" id="logo" class="center">
+    <div id="landingPage" style="display:none;">
+        <img src = "images/DChatLogo.jpg" class="logo center">
         <h1 class = "center">Welcome to DChat!</h1>
         <button id = "landingBtn" class = "center">Login Here</button>
     </div>
 
     <div id="main" class = "center" style = "display:none">
-
-        <!-- <h1 id = "logo">DChat</h1> -->
+        
         <div id="accountDiv" class="center">
+
+            <i class="fa-solid fa-arrow-left-long"></i>
+            <h2 class="btn goHome">Back</h2>
+
             <div id="loginDiv" class="center" style = "display:none;">
 
                 <h2>Please Login Here</h2>

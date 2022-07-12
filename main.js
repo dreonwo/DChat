@@ -11,6 +11,8 @@ window.onload = ()=>{
     const loginA = $('#signupDiv p a');
     const landingBtn = $('#landingBtn');
     
+    landingPage.style.display = "block";
+
     landingBtn.addEventListener('click', () =>{
         landingPage.style.display = 'none';
         $('#main').style.display = 'block';

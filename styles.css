@@ -4,6 +4,8 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    justify-content: center;
 }
 
 #main{
@@ -24,8 +26,6 @@ p{
     background-color: rgba(7, 107, 114, .6);
     width: 35%;
     height: 75%;
-    position: relative;
-    top: 35%;
 }
 
 .center{
@@ -61,7 +61,7 @@ p{
     margin-bottom: 10px;
 }
 
-#btnLogin, #btnSignup, #btnLogout, #landingBtn{
+#btnLogin, #btnSignup, #btnLogout, #landingBtn, .btn{
     font-family: sans-serif;
     font-weight: bold;
     display: inline-block;
@@ -73,9 +73,19 @@ p{
     margin: 20px  0 auto;
 }
 
-#logo{
+.goHome{
+    position: absolute;
+    top: -10%;
+    left: -80%;
+}
+
+.fa-arrow-left-long{
+    margin-left: 5%;
+    width: 200%;
+}
+
+.logo{
     color: #720E07;
-    font-size: 5em;
     max-width: 50%;
     max-height: 50%;
     border-radius: 25%;
@@ -121,6 +131,7 @@ p a:hover{
 
 #messages{
     max-height: 90%;
+    z-index: 50;
     overflow: scroll;
 }
 
@@ -207,6 +218,11 @@ p a:hover{
 
     #logo{
         margin: 20px 15%;
+    }
+
+    .goHome{
+        top:-15%;
+        left: -5%;
     }
 
     #scroll,#chatroom{
