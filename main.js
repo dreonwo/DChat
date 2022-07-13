@@ -10,16 +10,17 @@ window.onload = ()=>{
     const signupA = $('#loginDiv p a');
     const loginA = $('#signupDiv p a');
     const landingBtn = $('#landingBtn');
-    const goHome = $('.goHome');
-
+    const goHomes = document.querySelectorAll('.goHome');
     
     landingPage.style.display = "block";
 
-    goHome.addEventListener('click', ()=>{
-        landingPage.style.display = 'block';
-        $('#main').style.display = 'none';
+    goHomes.forEach(goHome =>{
+        goHome.addEventListener('click', ()=>{
+            landingPage.style.display = 'block';
+            $('#main').style.display = 'none';
+        });
     });
-    
+
     landingBtn.addEventListener('click', () =>{
         landingPage.style.display = 'none';
         $('#main').style.display = 'block';
@@ -71,6 +72,10 @@ window.onload = ()=>{
                 e.target.value = '';
             });
         }
+    });
+
+    $('#messages').addEventListener('touchmove', e=>{
+        e.preventDefault();
     });
 
     $('#messagebox').addEventListener('keyup', (e)=>{

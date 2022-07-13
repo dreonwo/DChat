@@ -73,11 +73,11 @@ p{
     margin: 20px  0 auto;
 }
 
-.goHome{
+/* .goHome{
     position: absolute;
     top: -10%;
     left: -80%;
-}
+} */
 
 .fa-arrow-left-long{
     margin-left: 5%;
@@ -220,10 +220,10 @@ p a:hover{
         margin: 20px 15%;
     }
 
-    .goHome{
+    /* .goHome{
         top:-15%;
         left: -5%;
-    }
+    } */
 
     #scroll,#chatroom{
         width:90%;
