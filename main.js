@@ -12,8 +12,6 @@ window.onload = ()=>{
     const landingBtn = $('#landingBtn');
     const goHomes = document.querySelectorAll('.goHome');
     
-    landingPage.style.display = "block";
-
     goHomes.forEach(goHome =>{
         goHome.addEventListener('click', ()=>{
             landingPage.style.display = 'block';
@@ -84,6 +82,14 @@ window.onload = ()=>{
             
             createMessage(e.currentTarget.parentNode.querySelector('#name').textContent, e.target.value);
             e.target.value = '';
+        }
+    });
+
+    $('#loginPassword').addEventListener('keyup', e =>{
+        if (e.key === 'Enter' || e.keyCode === 13) {
+            login($('#loginEmail').value, $('#loginPassword').value);
+        $('#loginEmail').value='';
+        $('#loginPassword').value='';
         }
     });
 
