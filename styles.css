@@ -254,6 +254,7 @@ p a:hover{
         border-top: 1px solid black;
         padding: 3% 3%;
         height: 80%;
+        z-index: 50;
         overflow: scroll;
     }
 

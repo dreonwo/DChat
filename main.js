@@ -61,7 +61,6 @@ window.onload = ()=>{
         stopListeningForLatestMessage();
     });
 
-
     $('#searchbox').addEventListener('keyup', (e)=>{
         
         if (e.key === 'Enter' || e.keyCode === 13) {
@@ -70,10 +69,6 @@ window.onload = ()=>{
                 e.target.value = '';
             });
         }
-    });
-
-    $('#messages').addEventListener('touchmove', e=>{
-        e.preventDefault();
     });
 
     $('#messagebox').addEventListener('keyup', (e)=>{
