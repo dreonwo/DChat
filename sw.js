@@ -1,4 +1,4 @@
-const CACHE_NAME = "site-static-v1";
+const CACHE_NAME = "site-static-v2";
 const OFFLINE_URL = "offline.html";
 
 
@@ -42,6 +42,4 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("fetch", (event) => {
     
     event.respondWith( onlineOrOffline(event.request) );
-    // if (event.request.mode === "navigate") {
-    // }
 });
