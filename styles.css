@@ -131,7 +131,6 @@ p a:hover{
 
 #messages{
     max-height: 90%;
-    z-index: 50;
     overflow: scroll;
 }
 
