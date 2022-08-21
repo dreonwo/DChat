@@ -1,9 +1,13 @@
 'use strict'
+
 window.onload = ()=>{
 
     const $ = document.querySelector.bind(document);
     
     const landingPage = $('#landingPage');
+
+    landingPage.style.display = "block";
+
     const loginDiv = $('#loginDiv');
     const signupDiv = $('#signupDiv');
 
@@ -49,6 +53,7 @@ window.onload = ()=>{
     $('#btnLogout').addEventListener('click', () =>{
         $('#homePage').style.display = 'none';
         $('#signupDiv').style.display = 'none';
+        $('#landingPage').style.display = 'none';
         $('#main').style.display = 'block';
         window.user = undefined;
         logout();
@@ -56,6 +61,7 @@ window.onload = ()=>{
 
     $('#backbtn').addEventListener('click', () =>{
         $('#chatroom').style.display = 'none';
+        $('#landingPage').style.display = 'none';
         $('#scroll').style.display = 'block';
         $('#messages').innerHTML = '';
         stopListeningForLatestMessage();
@@ -93,6 +99,7 @@ window.onload = ()=>{
         var chatterDiv = document.createElement('div');
         chatterDiv.classList.add('chatDiv');
         chatterDiv.textContent = chatter;
+
         var parser = new DOMParser();
         var doc = parser.parseFromString(`<i class="fas fa-trash trash trashMobile"></i>`, 'text/html');
         var trash = doc.querySelector('i');
@@ -165,12 +172,14 @@ window.onload = ()=>{
                     await addUsername(auth.uid, $('#signupUsername').value);
                     $('#homePage').style.display = 'block';
                     $('#main').style.display = 'none';
+                    $('#landingPage').style.display = 'none';
                     $('#signupUsername').value='';
                     statusChange(auth);
                 }
                 else{
                     $('#loginDiv').style.display = 'none';
                     $('#signupDiv').style.display = 'none';
+                    $('#landingPage').style.display = 'none';
                     $('#usernameDiv').style.display = 'block';
 
                     $('#usernameForm').addEventListener('submit', async (e) =>{
@@ -180,6 +189,7 @@ window.onload = ()=>{
                         $('#homePage').style.display = 'block';
                         $('#accountDiv').style.display = 'none';
                         $('#usernameDiv').style.display = 'none';
+                        $('#landingPage').style.dislay = 'none';
                         statusChange(auth);
                     });
                 } 
@@ -194,7 +204,8 @@ window.onload = ()=>{
                 }
 
                 $('#homePage').style.display = 'block';
-                $('#main').style.display = 'none';    
+                $('#main').style.display = 'none';   
+                $('#landingPage').style.dislay = 'none'; 
             }
         }
         else{

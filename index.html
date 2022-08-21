@@ -31,7 +31,7 @@
 </head>
 <body>
 
-    <div id="landingPage">
+    <div id="landingPage" style="display:none;">
         <img src = "images/DChatLogo.jpg" class="logo center">
         <h1 class = "center">Welcome to DChat!</h1>
         <button id = "landingBtn" class = "center">Login Here</button>
@@ -49,7 +49,7 @@
 
                 <input type="text" id="loginEmail" placeholder="Email">
 
-                <br> <br>
+                <br><br>
 
                 <input type="password" id="loginPassword" placeholder="Password">
 
@@ -97,7 +97,10 @@
     <div id="homePage" style = "display: none;">
         <h2>No Username</h2>
 
-        <button id = "btnLogout">Logout</button>
+        <div id="btnLogout">
+             <i class="fas fa-arrow-left fa-xl"></i>
+            <p>Logout</p>
+        </div>
 
         <div id = "scroll" class = "center b">
             <div id="search">
