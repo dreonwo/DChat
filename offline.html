@@ -10,8 +10,29 @@
     <title>Offline</title>
     <style>
         body{
-            background-color:black;
+            background-color:white;
             text-align: center;
+        }
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .center{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+
+        div{
+            background-color: #E1E8ED;
+            /* transform: scale(50%); */
+            /* height: 100%; */
+            margin: 0;
+            padding: 0;
+            font-size: 0;
         }
 
         .nowifi{
@@ -23,25 +44,20 @@
         h1{
             font-family:Verdana, Geneva, Tahoma, sans-serif;
             font-size: 3rem;
-            color: white;
-            position: absolute;
-            top: 50%;
-            left: 50%;
+            color: black;
             text-shadow: 0 0 20px yellow;
-            transform: translate(-50%,-50%);
         }
 
         .sadface{
-            position: absolute;
-            top: 45%;
-            left: 34%;
             transform: scale(60%);
         }
     </style>
 </head>
 <body>
-    <img class="nowifi" src="images/nowifi.png" alt="">
-    <h1>You are offline!</h1>
-    <img class="sadface" src="images/sadface.png" alt="">
+    <div class="center">
+        <img class="nowifi" src="images/nowifi.png" alt="">
+        <h1>You are offline!</h1>
+        <img class="sadface" src="images/sadface.png" alt="">
+    </div>
 </body>
 </html>
