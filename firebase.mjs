@@ -25,6 +25,8 @@ const auth = getAuth();
 
 const db = getFirestore(app);
 
+// db.enablePersistence();
+
 window.login = (email,password) =>{
     signInWithEmailAndPassword(auth, email,password)
     .catch( err => console.log(err.message));

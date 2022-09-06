@@ -205,7 +205,7 @@ window.onload = ()=>{
 
                 $('#homePage').style.display = 'block';
                 $('#main').style.display = 'none';   
-                $('#landingPage').style.dislay = 'none'; 
+                $('#landingPage').style.display = 'none'; 
             }
         }
         else{
