@@ -20,12 +20,9 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
 const auth = getAuth();
-
 const db = getFirestore(app);
 
-// db.enablePersistence();
 
 window.login = (email,password) =>{
     signInWithEmailAndPassword(auth, email,password)

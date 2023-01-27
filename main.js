@@ -60,7 +60,7 @@ window.onload = ()=>{
     });
 
     $('#backbtn').addEventListener('click', () =>{
-        $('#chatroom').style.display = 'none';
+        $('#chatroom').style.transform = 'scale(0)';
         $('#landingPage').style.display = 'none';
         $('#scroll').style.display = 'block';
         $('#messages').innerHTML = '';
@@ -114,15 +114,14 @@ window.onload = ()=>{
         chatterDiv.append(trash);
         chatterDiv.addEventListener('click',(e)=>{
             $('#scroll').style.display = 'none';
-            $('#chatroom').style.display = 'block';
-            $('h2#name').textContent = e.target.textContent;
+            $('#chatroom').style.transform = "scale(100%)";
+            $('#name').textContent = e.target.textContent;
 
             getAllMessages(chatId, addMsgDiv).then(()=>{
 
                 $('#messages').scrollTop = $('#messages').scrollHeight;
 
                 startListeningForLatestMessage(chatId,addMsgDiv);
-                
             });
  
         });
