@@ -60,7 +60,7 @@ window.onload = ()=>{
     });
 
     $('#backbtn').addEventListener('click', () =>{
-        $('#chatroom').style.transform = 'scale(0)';
+        $('#chatroom').style.transform = 'scale(0) translate(-50%,-50%)';
         $('#landingPage').style.display = 'none';
         $('#scroll').style.display = 'block';
         $('#messages').innerHTML = '';
@@ -114,7 +114,7 @@ window.onload = ()=>{
         chatterDiv.append(trash);
         chatterDiv.addEventListener('click',(e)=>{
             $('#scroll').style.display = 'none';
-            $('#chatroom').style.transform = "scale(100%)";
+            $('#chatroom').style.transform = "scale(100%) translate(-50%,-50%)";
             $('#name').textContent = e.target.textContent;
 
             getAllMessages(chatId, addMsgDiv).then(()=>{
