@@ -126,6 +126,7 @@ p a:hover{
     font-weight: bold;
     display: inline-block;
     height: 2em;
+    border-radius: 20px;
     font-size: 1em;
 }
 
@@ -154,8 +155,17 @@ p a:hover{
     transition: all 0.6s;
 }
 
+#chatroom header{
+    padding: 2%;
+    padding-bottom: 0;
+}
+
 #messages{
-    max-height: 83%;
+    display: flex;
+    border-top: 1px solid black;
+    flex-direction: column;
+    gap: 15px;
+    height: 83%;
     padding: 2%;
     overflow: scroll;
 }
@@ -173,22 +183,40 @@ p a:hover{
     opacity: 1;
 }
 
-.sender::after{
+/* .sender::after{
     content: ": ";
-}
+} */
 
 .myMsg{
+    text-align: right;
+}
+
+.myMsg .sender{
     color: blue;
 }
 
-.theirMsg{
+.theirMsg .sender{
     color: red;
 }
 
+.message{
+    display: inline-block;
+    position: relative;
+    border: .5px solid black;
+    border-radius: 10px;
+    padding: 1.5%;
+}
 .time{
     font-size: 50%;
     display: block;
+}
+
+.myMsg .time{
     text-align: right;
+}
+
+.theirMsg .time{
+    text-align: left;
 }
 
 #search{
@@ -262,7 +290,6 @@ p a:hover{
         width:90%;
         height: 80%;
         top: 55%;
-        /* transition: all 0.6s; */
     }
 
 

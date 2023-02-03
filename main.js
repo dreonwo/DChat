@@ -135,16 +135,17 @@ window.onload = ()=>{
 
         if(data.timestamp){
             let msgDiv = $('#messages').appendChild(document.createElement('div'));
-            let senderSpan = msgDiv.appendChild(document.createElement('span'));
-            let msgSpan = msgDiv.appendChild(document.createElement('span'));
+            let senderSpan = msgDiv.appendChild(document.createElement('div'));
+            let msgSpan = msgDiv.appendChild(document.createElement('div'));
             let timeSpan = msgDiv.appendChild(document.createElement('span'));
 
             msgSpan.textContent = data.message;
+            msgSpan.classList.add('message');
     
             if(data.sender == user.username)
-                senderSpan.classList.add('myMsg');
+                msgDiv.classList.add('myMsg');
             else
-                senderSpan.classList.add('theirMsg');
+                msgDiv.classList.add('theirMsg');
     
             senderSpan.textContent = data.sender;
             senderSpan.classList.add('sender');
