@@ -63,7 +63,7 @@ p{
     font-size: 1.6em;
 }
 
-#loginEmail,#loginPassword,#signupEmail,#signupPassword,#signupUsername{
+.accountInput{
     background-color:var(--secondary-background-color);
     border-top: black 2px;
     border-left: black 2px;
@@ -77,7 +77,7 @@ p{
     font-size: 15px;
 }
 
-#btnLogin, #btnSignup, #landingBtn, .btn{
+.btn{
     font-family: sans-serif;
     font-weight: bold;
     display: inline-block;

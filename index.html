@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="theme-color" content="#7cd97c">
+    <meta name="theme-color" content="#91bfff">
 
     <link rel="apple-touch-icon" href="images/dchatlogo80x80.png">
     <link rel="apple-touch-icon" href="images/dchatlogo96x96.png">
@@ -32,9 +32,9 @@
 <body>
 
     <div id="landingPage" style="display:none;">
-        <img src = "images/DChatLogo.jpg" class="logo center">
+        <img src = "images/DChatLogo.png" class="logo center">
         <h1 class = "center">Welcome to DChat!</h1>
-        <button id = "landingBtn" class = "center">Login Here</button>
+        <button id = "landingBtn" class = "center btn">Login Here</button>
     </div>
 
     <div id="main" class = "center" style = "display:none;">
@@ -47,15 +47,15 @@
 
                 <h2>Please Login Here</h2>
 
-                <input type="text" id="loginEmail" placeholder="Email">
+                <input type="text" id="loginEmail" class="accountInput" placeholder="Email">
 
                 <br><br>
 
-                <input type="password" id="loginPassword" placeholder="Password">
+                <input type="password" id="loginPassword" class="accountInput" placeholder="Password">
 
                 <br>
 
-                <button id = "btnLogin">Login</button>
+                <button id = "btnLogin" class="btn">Login</button>
 
                 <p>Haven't signed up? <a>Click here!</a></p>
 
@@ -66,19 +66,19 @@
 
                 <h2>Please Signup Here</h2>
 
-                <input type="text" id="signupEmail" placeholder="Email">
+                <input type="text" id="signupEmail" class="accountInput" placeholder="Email">
 
                 <br> <br>
 
-                <input type="text" id="signupUsername" placeholder="Username">
+                <input type="text" id="signupUsername" class="accountInput" placeholder="Username">
 
                 <br> <br>
 
-                <input type="password" id="signupPassword" placeholder="Password">
+                <input type="password" id="signupPassword" class="accountInput" placeholder="Password">
 
                 <br>
 
-                <button id = "btnSignup">Sign up</button>
+                <button id = "btnSignup" class="btn">Sign up</button>
                 
                 <p>Already have an account? <a>Click here!</a></p>
 
@@ -97,7 +97,7 @@
     <div id="homePage" style = "display: none;">
         <h2>No Username</h2>
 
-        <div id="btnLogout">
+        <div id="btnLogout" class="btn">
              <i class="fas fa-arrow-left fa-xl"></i>
             <p>Logout</p>
         </div>
