@@ -147,7 +147,7 @@ window.onload = ()=>{
             else
                 msgDiv.classList.add('theirMsg');
     
-            senderSpan.textContent = data.sender;
+            //senderSpan.textContent = data.sender;
             senderSpan.classList.add('sender');
     
             timeSpan.classList.add('time');
