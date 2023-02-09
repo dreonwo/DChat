@@ -11,4 +11,4 @@ Users are authenticated through google auth.<br/><br/>
 The data for users is persisted with Google Firestore.
 
 You can find the website here:
-[DChat](https://dreonwo.github.io/DChat/){:target="_blank"}
+<a href = "https://dreonwo.github.io/DChat/" target="_blank">DChat</a>
