@@ -97,6 +97,7 @@ p{
     padding: .5%;
     border-radius: 20%;
     position: relative;
+    margin: 0;
     background-color:var(--primary-background-color);
 }
 
