@@ -150,7 +150,7 @@ p a:hover{
     text-align: center;
 }
 
-.confirmation-wrapper{
+.logout-confirmation-wrapper{
     background-color: rgba(0,0,0,.5);
     position: absolute;
     display: none;
@@ -159,7 +159,7 @@ p a:hover{
     height: 100%;
 }
 
-.confirmation-screen{
+.logout-confirmation-screen{
     background-color: white;
     align-self: center;
     display: flex;
@@ -171,12 +171,12 @@ p a:hover{
 
 }
 
-.confirmation-btns{
+.logout-confirmation-btns{
     display: flex;
     gap: 60px;
 }
 
-.confirmation-btns button{
+.logout-confirmation-btns button{
     background-color: var(--secondary-background-color);
     color: var(--text-color);
     border: none;

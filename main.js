@@ -51,14 +51,14 @@ window.onload = ()=>{
     });
 
     $('#btnLogout').addEventListener('click', () =>{
-        $('.confirmation-wrapper').style.display = 'flex';
+        $('.logout-confirmation-wrapper').style.display = 'flex';
     });
 
-    $('.confirmation-wrapper').addEventListener('click',() =>{
-        $('.confirmation-wrapper').style.display = 'none';
+    $('.logout-confirmation-wrapper').addEventListener('click',() =>{
+        $('.logout-confirmation-wrapper').style.display = 'none';
     });
 
-    $('.confirmation-yes').addEventListener('click',() =>{
+    $('.logout-confirmation-yes').addEventListener('click',() =>{
         $('#homePage').style.display = 'none';
         $('#signupDiv').style.display = 'none';
         $('#landingPage').style.display = 'none';
@@ -67,8 +67,8 @@ window.onload = ()=>{
         logout();
     });
 
-    $('.confirmation-no').addEventListener('click',() =>{
-        $('.confirmation-wrapper').style.display = 'none';
+    $('.logout-confirmation-no').addEventListener('click',() =>{
+        $('.logout-confirmation-wrapper').style.display = 'none';
     });
 
     $('#backbtn').addEventListener('click', () =>{
