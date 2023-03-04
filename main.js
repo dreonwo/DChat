@@ -51,12 +51,24 @@ window.onload = ()=>{
     });
 
     $('#btnLogout').addEventListener('click', () =>{
+        $('.confirmation-wrapper').style.display = 'flex';
+    });
+
+    $('.confirmation-wrapper').addEventListener('click',() =>{
+        $('.confirmation-wrapper').style.display = 'none';
+    });
+
+    $('.confirmation-yes').addEventListener('click',() =>{
         $('#homePage').style.display = 'none';
         $('#signupDiv').style.display = 'none';
         $('#landingPage').style.display = 'none';
         $('#main').style.display = 'block';
         window.user = undefined;
         logout();
+    });
+
+    $('.confirmation-no').addEventListener('click',() =>{
+        $('.confirmation-wrapper').style.display = 'none';
     });
 
     $('#backbtn').addEventListener('click', () =>{

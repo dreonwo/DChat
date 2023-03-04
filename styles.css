@@ -3,6 +3,7 @@ body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     justify-content: center;
+    box-sizing: border-box;
 }
 
 :root{
@@ -86,28 +87,36 @@ p{
     border-radius: 25%;
     background-color: var(--secondary-background-color);
     color: var(--text-color);
-    padding: 2%;
     cursor: pointer;
     margin: 20px  0 auto;
 }
 
+#homepage{
+    width: 100%;
+    height: 100%;
+    margin: .5%;
+}
+
 #btnLogout{
-    display: inline-block;
+    display: flex;
+    width: 130px;
+    height: 50px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     border: solid black 3px;
-    padding: .5%;
+    padding: .3%;
     border-radius: 20%;
-    position: relative;
     margin: 0;
     background-color:var(--primary-background-color);
 }
 
 #btnLogout p{
-    display: inline;
     font-family: sans-serif;
     font-weight: bold;
-    font-size: 1.5em;
+    font-size: 1em;
+    margin: 0;
 }
-
 
 .logo{
     color: #720E07;
@@ -119,11 +128,6 @@ p{
 
 p a:hover{
     color:blue;
-}
-
-#homepage{
-    width: 100%;
-    height: 100%;
 }
 
 .hide{
@@ -144,6 +148,40 @@ p a:hover{
 #name{
     margin: 0 auto 5%;
     text-align: center;
+}
+
+.confirmation-wrapper{
+    background-color: rgba(0,0,0,.5);
+    position: absolute;
+    display: none;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.confirmation-screen{
+    background-color: white;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 300px;
+    height: 100px;
+
+}
+
+.confirmation-btns{
+    display: flex;
+    gap: 60px;
+}
+
+.confirmation-btns button{
+    background-color: var(--secondary-background-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 25%;
+    padding: 5px 10px;
 }
 
 #chatroom header{
@@ -294,7 +332,7 @@ p a:hover{
     filter: brightness(200%);
 }
 
-@media  (max-width: 500px) {
+@media (max-width: 500px) {
 
     #accountDiv{
         width: 80%;
@@ -302,6 +340,16 @@ p a:hover{
 
     #logo{
         margin: 20px 15%;
+    }
+
+    #homepage{
+        padding: 20px;
+    }
+
+    #btnLogout{
+        justify-content: center;
+        gap: 10px;
+        padding: 0;
     }
 
     #scroll{
