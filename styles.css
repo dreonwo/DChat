@@ -9,7 +9,7 @@ body{
 :root{
     --primary-background-color:	#91bfff;
     --secondary-background-color:	#4c6aff;
-    --text-color: #ffa700;
+    --text-color: hsl(40,100%,55%);
     --shadow: 5px 10px 10px dimgray;
 }
 
