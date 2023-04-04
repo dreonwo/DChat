@@ -207,8 +207,7 @@ window.onload = ()=>{
             }
             else{
                 $('#chats').innerHTML = '';
-
-                $('#homepage h2').textContent = window.user.username;
+                $('#homePage h2').textContent = window.user.username;
 
                 for(var chatter in user.chats){
                     createChatterDiv(user.chats[chatter]);
