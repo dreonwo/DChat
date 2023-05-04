@@ -300,15 +300,15 @@ p a:hover{
     border-radius: 5px;
     font-size: 1.3em;
     position: absolute;
-    left: 15px;
-    top: 8px;
+    left: 3%;
+    top: 1.5%;
 }
 
 .trash{
     display:inline-block;
     position: absolute;
     background: none;
-    left: 96%;
+    left: 93%;
     top: 2px;
 }
 
@@ -332,7 +332,7 @@ p a:hover{
     filter: brightness(200%);
 }
 
-@media (max-width: 500px) {
+@media (max-width: 676px) {
 
     #accountDiv{
         width: 80%;
@@ -370,7 +370,7 @@ p a:hover{
 
 
     #search i{
-        left:4%;
+        left: 3%;
     }
 
    .trashMobile{
