@@ -285,6 +285,26 @@ p a:hover{
     width: 100%;
 }
 
+.searchResults{
+    position: absolute;
+    gap: 20px;
+    font-size: 1.1em;
+    flex-direction: column;
+    display: none;
+    border-radius: 10px;
+    top: 5%;
+    left: 3%;
+    z-index: 3;
+    width: 94%;
+    height: auto;
+    padding: 15px 0;
+    background-color: var(--primary-background-color);
+}
+
+.searchResults p:hover{
+    background-color: white;
+}
+
 #search input{
     height: 25px;
     width: 90%;

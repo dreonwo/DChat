@@ -68,6 +68,15 @@ window.getUserRef = async (username)=>{
     return docRef;
 }
 
+window.getAllUsernames = async ()=>{
+    let usernames = [];
+    const docSnap = await getDocs(collection(db,"Users"));
+
+    docSnap.forEach(doc => usernames.push(doc.data().username));
+
+    return usernames;
+}
+
 window.getOwnDoc = async()=>{
     var ref = await doc(db,'Users', auth.currentUser.uid);
     var docu = await getDoc(ref);
