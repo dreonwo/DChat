@@ -44,6 +44,10 @@ window.onload = ()=>{
         $('#loginEmail').value='';
         $('#loginPassword').value='';
     });
+
+    $('#scroll').addEventListener('click',(e)=>{
+        $('.searchResults').style.display = 'none';
+    });
     
     $('#btnSignup').addEventListener('click', () =>{
         signup($('#signupEmail').value,$('#signupPassword').value);

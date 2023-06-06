@@ -281,13 +281,13 @@ p a:hover{
 }
 
 #search{
+    position: relative;
     text-align: center;
     width: 100%;
 }
 
 .searchResults{
     position: absolute;
-    /* gap: 20px; */
     font-size: 1.1em;
     flex-direction: column;
     display: none;
@@ -324,7 +324,7 @@ p a:hover{
     font-size: 1.3em;
     position: absolute;
     left: 3%;
-    top: 1.5%;
+    top: 30%;
 }
 
 .trash{
@@ -332,7 +332,7 @@ p a:hover{
     position: absolute;
     background: none;
     left: 93%;
-    top: 2px;
+    top: 30%;
 }
 
 .b{
