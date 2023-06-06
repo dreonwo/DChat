@@ -90,7 +90,7 @@ window.onload = ()=>{
             let match = new RegExp(pattern,'i');
     
             let filteredNames = usernames.filter(name =>{
-                return match.test(name);
+                return match.test(name) && name != user.username;
             });
 
             if(filteredNames.length > 0){
@@ -99,7 +99,6 @@ window.onload = ()=>{
                 filteredNames.forEach(name =>{
                     let p = document.createElement('p');
                     p.style.margin = 0;
-                    p.style.padding = 0;
                     p.textContent = name;
                     p.style.cursor = 'pointer';
 

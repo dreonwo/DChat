@@ -287,7 +287,7 @@ p a:hover{
 
 .searchResults{
     position: absolute;
-    gap: 20px;
+    /* gap: 20px; */
     font-size: 1.1em;
     flex-direction: column;
     display: none;
@@ -299,6 +299,10 @@ p a:hover{
     height: auto;
     padding: 15px 0;
     background-color: var(--primary-background-color);
+}
+
+.searchResults p{
+    padding: 10px 0;
 }
 
 .searchResults p:hover{
