@@ -92,11 +92,16 @@ window.onload = ()=>{
 
             let pattern = '^' + e.target.value;
             let match = new RegExp(pattern,'i');
-    
+            let count = 0;
             let filteredNames = usernames.filter(name =>{
-                return match.test(name) && name != user.username;
+                let isMatch = false;
+                if(match.test(name)){
+                    isMatch = true;
+                    count++;
+                }
+                return isMatch && name != user.username && (count <= 5);
             });
-
+            console.log(filteredNames)
             if(filteredNames.length > 0){
                 $('.searchResults').style.display = 'flex';
 
