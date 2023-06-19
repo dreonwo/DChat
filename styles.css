@@ -104,11 +104,10 @@ p{
     flex-direction: row;
     gap: 10%;
     align-items: center;
-    border: solid black 3px;
-    padding: 0 .5%;
-    border-radius: 20%;
+    padding: 0 1%;
+    border-radius: 100px;
     margin: 0;
-    background-color:var(--primary-background-color);
+    background-color:var(--secondary-background-color);
 }
 
 #btnLogout p{
@@ -134,22 +133,6 @@ p a:hover{
    display: none;
 }
 
-#backbtn{
-    font-family: sans-serif;
-    font-weight: bold;
-    display: inline-block;
-    color: var(--text-color);
-    background-color: var(--secondary-background-color);
-    height: 2em;
-    border-radius: 20px;
-    font-size: 1em;
-}
-
-#name{
-    margin: 0 auto 5%;
-    text-align: center;
-}
-
 .logout-confirmation-wrapper{
     background-color: rgba(0,0,0,.5);
     position: absolute;
@@ -166,8 +149,12 @@ p a:hover{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 300px;
-    height: 100px;
+    width: 600px;
+    height: 200px;
+}
+
+.logout-confirmation-screen p{
+    font-size: 1.2em;
 }
 
 .logout-confirmation-btns{
@@ -177,16 +164,61 @@ p a:hover{
 
 .logout-confirmation-btns button{
     background-color: var(--secondary-background-color);
+    cursor: pointer;
     color: var(--text-color);
     border: none;
+    font-size: 1.2em;
     border-radius: 25%;
-    padding: 5px 10px;
+    padding: 5px 20px;
 }
 
-#chatroom header{
-    display: flex;
+#search{
     position: relative;
+    text-align: center;
+    width: 100%;
 }
+
+.searchResults{
+    position: absolute;
+    font-size: 1.1em;
+    flex-direction: column;
+    display: none;
+    border-radius: 10px;
+    top: 105%;
+    left: 3%;
+    z-index: 3;
+    width: 95%;
+    height: auto;
+    padding: 15px 0;
+    background-color: var(--primary-background-color);
+}
+
+.searchResults p{
+    padding: 10px 0;
+}
+
+.searchResults p:hover{
+    background-color: white;
+}
+
+#search input{
+    height: 25px;
+    width: 90%;
+    margin-top: 5px;
+    font-size: 15px;
+    border-radius: 10px;
+    padding-left: 27px;
+}
+
+#search i{
+    color: black;
+    border-radius: 5px;
+    font-size: 1.3em;
+    position: absolute;
+    left: 3%;
+    top: 30%;
+}
+
 #scroll{
     height: 95%;
     width: 40%;
@@ -206,8 +238,31 @@ p a:hover{
 }
 
 #chatroom header{
-    padding: 2%;
-    padding-bottom: 0;
+    display: flex;
+    position: relative;
+    padding: 0 2%;
+    justify-content: center;
+    align-items: center;
+}
+
+#backbtn{
+    font-family: sans-serif;
+    font-weight: bold;
+    display: inline-block;
+    color: var(--text-color);
+    background-color: var(--secondary-background-color);
+    height: 2em;
+    border: none;
+}
+
+#backbtn i{
+    font-size: 2em;
+    cursor: pointer;
+}
+
+#name{
+    margin: 3% auto;
+    text-align: center;
 }
 
 #messages{
@@ -280,63 +335,12 @@ p a:hover{
     text-align: left;
 }
 
-#search{
-    position: relative;
-    text-align: center;
-    width: 100%;
-}
-
-.searchResults{
-    position: absolute;
-    font-size: 1.1em;
-    flex-direction: column;
-    display: none;
-    border-radius: 10px;
-    top: 105%;
-    left: 3%;
-    z-index: 3;
-    width: 95%;
-    height: auto;
-    padding: 15px 0;
-    background-color: var(--primary-background-color);
-}
-
-.searchResults p{
-    padding: 10px 0;
-}
-
-.searchResults p:hover{
-    background-color: white;
-}
-
-#search input{
-    height: 25px;
-    width: 90%;
-    margin-top: 5px;
-    font-size: 15px;
-    border-radius: 10px;
-    padding-left: 27px;
-}
-
-#search i{
-    color: black;
-    border-radius: 5px;
-    font-size: 1.3em;
-    position: absolute;
-    left: 3%;
-    top: 30%;
-}
-
 .trash{
     display:inline-block;
     position: absolute;
     background: none;
     left: 93%;
     top: 30%;
-}
-
-.b{
-    border: black solid;
 }
 
 .chatDiv:first-child{
@@ -376,7 +380,6 @@ p a:hover{
     #btnLogout{
         justify-content: center;
         gap: 10px;
-        padding: 0;
     }
 
     #scroll{
