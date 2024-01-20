@@ -416,4 +416,8 @@ p a:hover{
         overflow: scroll;
     }
 
+    #messagebox{
+        width: 90%;
+    }
+
 }
