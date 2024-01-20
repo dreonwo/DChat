@@ -286,10 +286,10 @@ p a:hover{
 
 #messagebox{
     position: absolute;
-    width: 97%;
+    width: 95%;
     bottom: 1%;
-    left: 1%;
     right: 1%;
+    font-size: 1.1em;
     border-radius: 12px;
     background-color: white;
     opacity: 1;
@@ -416,7 +416,4 @@ p a:hover{
         overflow: scroll;
     }
 
-    #messageBox{
-        top: 95%;
-    }
 }
