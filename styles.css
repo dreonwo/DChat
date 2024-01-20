@@ -365,7 +365,7 @@ p a:hover{
     filter: brightness(200%);
 }
 
-@media (max-width: 676px) {
+@media (max-width: 700px) {
 
     #accountDiv{
         width: 80%;
@@ -394,6 +394,10 @@ p a:hover{
         top: 55%;
     }
 
+    #search input{
+        font-size: 1.1em;
+    }
+
     #chatroom{
         width:90%;
         height: 80%;
@@ -415,9 +419,4 @@ p a:hover{
         z-index: 50;
         overflow: scroll;
     }
-
-    #messagebox{
-        width: 85%;
-    }
-
 }
