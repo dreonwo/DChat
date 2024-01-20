@@ -101,7 +101,7 @@ window.onload = ()=>{
                 }
                 return isMatch && name != user.username && (count <= 5);
             });
-            console.log(filteredNames)
+            
             if(filteredNames.length > 0){
                 $('.searchResults').style.display = 'flex';
 
