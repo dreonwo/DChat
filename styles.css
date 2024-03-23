@@ -4,6 +4,8 @@ body{
     display: flex;
     justify-content: center;
     box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
 :root{
@@ -95,6 +97,11 @@ p{
     width: 100%;
     height: 100%;
     margin: .5%;
+}
+
+#homePage h2{
+    font-size: 2em;
+    margin-top: 10px;
 }
 
 #btnLogout{
@@ -275,7 +282,7 @@ p a:hover{
     border-top: 1px solid black;
     flex-direction: column;
     gap: 15px;
-    height: 83%;
+    height: 80%;
     padding: 2%;
     overflow: scroll;
 }
@@ -302,14 +309,6 @@ p a:hover{
 
 .myMsg{
     text-align: right;
-}
-
-.myMsg .sender{
-    color: blue;
-}
-
-.theirMsg .sender{
-    color: red;
 }
 
 .message{
@@ -376,11 +375,12 @@ p a:hover{
     }
 
     #homePage{
-        padding: 10px;
+        padding-left: 20px;
     }
 
     #homePage h2{
         margin-top: 0;
+        font-size: 1.7em;
     }
 
     #btnLogout{
@@ -408,14 +408,13 @@ p a:hover{
         left: 94%;
     }
 
-    h2{
+    #homePage h2{
         margin-bottom: 5px;
     }
 
     #messages{
         border-top: 1px solid black;
         padding: 3% 3%;
-        height: 80%;
         z-index: 50;
         overflow: scroll;
     }

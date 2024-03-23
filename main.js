@@ -17,7 +17,7 @@ window.onload = ()=>{
     const landingBtn = $('#landingBtn');
     const goHomes = document.querySelectorAll('.goHome');
     
-    goHomes.forEach(goHome =>{
+    goHomes.forEach( goHome =>{
         goHome.addEventListener('click', ()=>{
             landingPage.style.display = 'block';
             $('#main').style.display = 'none';
@@ -101,7 +101,7 @@ window.onload = ()=>{
                 }
                 return isMatch && name != user.username && (count <= 5);
             });
-            
+
             if(filteredNames.length > 0){
                 $('.searchResults').style.display = 'flex';
 
@@ -262,7 +262,6 @@ window.onload = ()=>{
             else{
                 $('#chats').innerHTML = '';
                 $('#homePage h2').textContent = window.user.username;
-
                 for(var chatter in user.chats){
                     createChatterDiv(user.chats[chatter]);
                 }
