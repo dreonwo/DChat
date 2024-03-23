@@ -385,6 +385,7 @@ p a:hover{
 
     #btnLogout{
         justify-content: center;
+        margin-left: auto;
         gap: 10px;
     }
 
