@@ -59,8 +59,9 @@ window.onload = ()=>{
         $('.logout-confirmation-wrapper').style.display = 'flex';
     });
 
-    $('.logout-confirmation-wrapper').addEventListener('click',() =>{
-        $('.logout-confirmation-wrapper').style.display = 'none';
+    $('.logout-confirmation-wrapper').addEventListener('click', e =>{
+        if(e.target.classList.contains('logout-confirmation-wrapper'))
+            $('.logout-confirmation-wrapper').style.display = 'none';
     });
 
     $('.logout-confirmation-yes').addEventListener('click',() =>{

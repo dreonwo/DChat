@@ -157,16 +157,17 @@ p a:hover{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 600px;
+    width: 400px;
     height: 200px;
 }
 
 .logout-confirmation-screen p{
-    font-size: 1.2em;
+    font-size: 2em;
 }
 
 .logout-confirmation-btns{
     display: flex;
+    font-size: 1.5em;
     gap: 60px;
 }
 
@@ -387,6 +388,15 @@ p a:hover{
         justify-content: center;
         margin-left: auto;
         gap: 10px;
+    }
+
+    .logout-confirmation-screen{
+        width: 70%;
+    }
+
+    .logout-confirmation-btns button{
+        font-size: 1.5em;
+        padding: 3px 10px;
     }
 
     #scroll{
