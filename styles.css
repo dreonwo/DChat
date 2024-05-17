@@ -252,7 +252,6 @@ p a:hover{
 
 #chatroom header{
     display: flex;
-    position: relative;
     padding: 0 2%;
     justify-content: center;
     align-items: center;
@@ -408,6 +407,10 @@ p a:hover{
 
     #search input{
         font-size: 1.1em;
+    }
+
+    #search i{
+        font-size: 1em;
     }
 
     #chatroom{
