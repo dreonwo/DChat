@@ -51,6 +51,7 @@ p{
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+    border-radius: 20px;
 }
 
 #landingBtn{
@@ -112,7 +113,7 @@ p{
     gap: 10%;
     align-items: center;
     padding: 0 1%;
-    border-radius: 100px;
+    border-radius: 30px;
     margin: 0;
     border: solid black 2px;
     background-color:var(--secondary-background-color);
@@ -157,6 +158,7 @@ p a:hover{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    border-radius: 20px;
     width: 400px;
     height: 200px;
 }

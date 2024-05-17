@@ -68,6 +68,7 @@ window.onload = ()=>{
         $('#homePage').style.display = 'none';
         $('#signupDiv').style.display = 'none';
         $('#landingPage').style.display = 'none';
+        $('.logout-confirmation-wrapper').style.display = 'none';
         $('#main').style.display = 'block';
         window.user = undefined;
         logout();
