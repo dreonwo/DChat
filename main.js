@@ -117,14 +117,13 @@ window.onload = ()=>{
                     let username = user.username.stringValue;
                     if(username == window.user.username)
                         return;
-                    
+
                     let p = document.createElement('p');
                     p.style.margin = 0;
                     p.textContent = username.charAt(0).toUpperCase() + username.substring(1, username.length).toLowerCase();
                     p.style.cursor = 'pointer';
-
                     p.addEventListener('click',(e)=>{
-                        createChatRoom(user, getUserDoc(e.target.textContent)).then(()=>{
+                        createChatRoom(window.user, getUserDoc(username)).then(()=>{
                             createChatterDiv(e.target.textContent);
                             $('#searchbox').value = '';
                         });

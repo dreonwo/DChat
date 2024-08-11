@@ -107,7 +107,7 @@ window.addUsername = (userId, username)=>{
     setDoc(doc(db,'Users',userId),{username, chats:{} });
 }
 
-window.createChatRoom = async (user1Prom,user2Prom)=>{
+window.createChatRoom = async (user1Prom, user2Prom)=>{
     var user1 = await user1Prom;
     var user2 = await user2Prom;
     var user1Ref = await getOwnRef();
