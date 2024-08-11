@@ -77,6 +77,29 @@ window.onload = ()=>{
         $('.logout-confirmation-wrapper').style.display = 'none';
     });
 
+    $('.delete-confirmation-wrapper').addEventListener('click', e =>{
+        e.stopPropagation();
+        if(e.currentTarget.classList.contains('delete-confirmation-wrapper'))
+            $('.delete-confirmation-wrapper').style.display = 'none';
+    });
+
+    $('.delete-confirmation-yes').addEventListener('click', e =>{
+        e.stopPropagation();
+        let delTarget = $('.delete-confirmation-wrapper').dataset.deletetarget;
+        deleteChat(delTarget).then(()=>{
+            $$('.chatDiv').forEach( div =>{
+                if (div.textContent == delTarget) div.remove();
+            });    
+        });
+        $('.delete-confirmation-wrapper').style.display = 'none';
+        $('.delete-confirmation-wrapper').removeAttribute('data-deletetarget');
+    });
+
+    $('.delete-confirmation-no').addEventListener('click', e =>{
+        e.stopPropagation();
+        $('.delete-confirmation-wrapper').style.display = 'none';
+    });
+
     $('#backbtn').addEventListener('click', () =>{
         $('#chatroom').style.transform = 'scale(0) translate(-50%,-50%)';
         $('#landingPage').style.display = 'none';
@@ -179,13 +202,12 @@ window.onload = ()=>{
             var doc = parser.parseFromString(`<i class="fas fa-trash trash trashMobile"></i>`, 'text/html');
             var trash = doc.querySelector('i');
     
-            trash.addEventListener('click', (e)=>{
-                deleteChat(e.currentTarget.parentNode.textContent).then(()=>{
-                    chatterDiv.remove();
-                });
+            trash.addEventListener('click', e =>{
                 e.stopPropagation();
+                $('.delete-confirmation-wrapper').setAttribute('data-deletetarget', e.currentTarget.parentNode.textContent);
+                $('.delete-confirmation-wrapper').style.display = 'flex';
             });
-    
+
             chatterDiv.append(trash);
             chatterDiv.addEventListener('click',(e)=>{
                 $('#scroll').style.display = 'none';

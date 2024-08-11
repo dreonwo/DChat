@@ -142,7 +142,7 @@ p a:hover{
    display: none;
 }
 
-.logout-confirmation-wrapper{
+.wrapper{
     background-color: rgba(0,0,0,.5);
     position: absolute;
     display: none;
@@ -151,7 +151,7 @@ p a:hover{
     height: 100%;
 }
 
-.logout-confirmation-screen{
+.confirmation-screen{
     background-color: white;
     align-self: center;
     display: flex;
@@ -163,17 +163,17 @@ p a:hover{
     height: 200px;
 }
 
-.logout-confirmation-screen p{
+.confirmation-screen p{
     font-size: 2em;
 }
 
-.logout-confirmation-btns{
+.confirmation-btns{
     display: flex;
     font-size: 1.5em;
     gap: 60px;
 }
 
-.logout-confirmation-btns button{
+.confirmation-btn{
     background-color: var(--secondary-background-color);
     cursor: pointer;
     color: var(--text-color);
