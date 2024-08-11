@@ -1,7 +1,6 @@
 'use strict'
 
 window.onload = ()=>{
-
     const $ = document.querySelector.bind(document);
     const $$ = document.querySelectorAll.bind(document);
     
@@ -87,30 +86,41 @@ window.onload = ()=>{
     });
 
     $('#searchbox').addEventListener('keyup', async (e)=>{
+        if(e.key == "Shift")
+            return;
+        
         $('.searchResults').innerHTML = '';
         let usernames = await getAllUsernames();
+        var users = '';
+        if(e.target.value){
+            var users = await getMatchingUsers(e.target.value.trim());
+        }
 
         if(e.target.value.trim()){
 
-            let pattern = '^' + e.target.value;
-            let match = new RegExp(pattern,'i');
-            let count = 0;
-            let filteredNames = usernames.filter(name =>{
-                let isMatch = false;
-                if(match.test(name)){
-                    isMatch = true;
-                    count++;
-                }
-                return isMatch && name != user.username && (count <= 5);
-            });
+            // let pattern = '^' + e.target.value;
+            // let match = new RegExp(pattern,'i');
+            // let count = 0;
+            // let filteredNames = usernames.filter(name =>{
+            //     let isMatch = false;
+            //     if(match.test(name)){
+            //         isMatch = true;
+            //         count++;
+            //     }
+            //     return isMatch && name != user.username && (count <= 5);
+            // });
 
-            if(filteredNames.length > 0){
+            if(usernames.length > 0){
                 $('.searchResults').style.display = 'flex';
 
-                filteredNames.forEach(name =>{
+                users.forEach( user =>{
+                    let username = user.username.stringValue;
+                    if(username == window.user.username)
+                        return;
+                    
                     let p = document.createElement('p');
                     p.style.margin = 0;
-                    p.textContent = name;
+                    p.textContent = username.charAt(0).toUpperCase() + username.substring(1, username.length).toLowerCase();
                     p.style.cursor = 'pointer';
 
                     p.addEventListener('click',(e)=>{
@@ -123,8 +133,7 @@ window.onload = ()=>{
                     });
 
                     $('.searchResults').appendChild(p);
-                });
-                
+                });  
             }
             else{
                 $('.searchResults').style.display = 'none'; 
@@ -251,7 +260,7 @@ window.onload = ()=>{
 
                     $('#usernameForm').addEventListener('submit', async (e) =>{
                         e.preventDefault();
-                        await addUsername(auth.uid, $('#username').value);
+                        await addUsername(auth.uid, $('#username').value.toLowerCase());
                         $('#username').value = '';
                         $('#homePage').style.display = 'block';
                         $('#accountDiv').style.display = 'none';

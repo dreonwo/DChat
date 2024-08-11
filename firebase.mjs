@@ -56,6 +56,22 @@ window.getUserDoc = async (username)=>{
     return docRef.data();
 }
 
+window.getMatchingUsers = async (startString)=>{
+    let lastChar = startString[startString.length-1].charCodeAt();
+    let lastCharModified = String.fromCharCode(lastChar+1);
+    let modifiedStartString = startString.substring(0,startString.length-1) + lastCharModified;
+    const q = query(collection(db, "Users"), where("username", ">=", startString.toLowerCase()), where("username", "<", modifiedStartString.toLowerCase()));
+    const q2 = query(collection(db, "Users"), where("username", ">=", startString.toUpperCase()), where("username", "<", modifiedStartString.toUpperCase()));
+    let docSnap = await getDocs(q);
+    let docSnap2 = await getDocs(q2);
+    const finalDocSnap = [...docSnap.docs, ...docSnap2.docs];
+    var docs = [];
+    finalDocSnap.forEach((doc) => {
+        doc ? docs.push(doc._document.data.value.mapValue.fields) : null;
+      });
+    return docs;
+}
+
 window.getUserRef = async (username)=>{
 
     const q = query(collection(db, "Users"), where("username", "==", username));
@@ -115,17 +131,17 @@ window.createChatRoom = async (user1Prom,user2Prom)=>{
     }
 }
 
+window.getChatId = async(username)=>{
+    var my = await getOwnDoc();
+    return Object.keys(my.chats).find(key => my.chats[key] === username);
+}
+
 window.deleteChat = async (username)=>{
     var myRef = await getOwnRef();
     var chatId = await getChatId(username);
     await updateDoc(myRef, {
         [`chats.${chatId}`]: deleteField()
     });
-}
-
-window.getChatId = async(username)=>{
-    var my = await getOwnDoc();
-    return Object.keys(my.chats).find(key => my.chats[key] === username);
 }
 
 window.createMessage = async (username, message)=>{
