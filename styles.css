@@ -266,12 +266,12 @@ p a:hover{
     display: inline-block;
     color: var(--text-color);
     background-color: var(--secondary-background-color);
-    height: 2em;
+    height: 2.5em;
     border: none;
 }
 
 #backbtn i{
-    font-size: 2em;
+    font-size: 2.5em;
     cursor: pointer;
 }
 
@@ -430,6 +430,14 @@ p a:hover{
 
     #homePage h2{
         margin-bottom: 5px;
+    }
+
+    #backbtn{
+        height: 3em;
+    }
+    
+    #backbtn i{
+        font-size: 3em;
     }
 
     #messages{
